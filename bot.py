@@ -26,35 +26,62 @@ def lalala(message):
 	if message.chat.type == 'private':
 		if message.text == 'Как дела?':
 			bot.send_message(message.chat.id, 'Олтично сэмпай)сам как?')
+
 			sti2 = open('menhera_watsup.webp.', 'rb')
 			bot.send_sticker(message.chat.id, sti2)
 		elif message.text == 'Может сыграем в игру?':
-			bot.send_message(message.chat.id, 'Игры еще не входят в мои умения, но в скором времени мой создатель их добавит)')
+			bot.send_message(message.chat.id, 'Загадайте число до 100 и напишите "загадал",я попробую угадать')
+		elif message.text == 'загадал':
+			bot.send_message(message.chat.id, str(random.randint(0,100)))
+			bot.send_message(message.chat.id, 'Я угадала?')
+		elif message.text == 'да':
+					bot.send_message(message.chat.id, 'Ураа!!!')
+
+		elif message.text == 'Да':
+					bot.send_message(message.chat.id, 'Ураа!!!')
+
+		elif message.text == 'нет':
+					bot.send_message(message.chat.id, 'Жаль(')
+
+		elif message.text == 'Нет':
+					bot.send_message(message.chat.id, 'Жаль(')
+
 		elif message.text == 'Раскажи цитату от Симы)':
 			bot.send_message(message.chat.id, 'В🥵 жизни 💗как😈и☺️в💋 шахматах 😭 потерял💍 королеву 😂 теперь 😜 наслаждайся 💩пешками🤢')
+		
 		elif message.text == 'Ты мне нравишься':
 			sti3 = open('lena.webp', 'rb')
 			bot.send_sticker(message.chat.id, sti3)
+		
 		elif message.text == 'JoJo':
 			sti4 = open('pngwing.com.webp', 'rb')
 			bot.send_sticker(message.chat.id, sti4)
+		
 		elif message.text == 'jojo':
 			sti4 = open('pngwing.com.webp', 'rb')
 			bot.send_sticker(message.chat.id, sti4)
+		
 		elif message.text == 'Jojo':
 			sti4 = open('pngwing.com.webp', 'rb')
 			bot.send_sticker(message.chat.id, sti4)
+		
 		elif message.text == 'привет':
 			bot.send_message(message.chat.id, 'Приветик, сэмпай)')
+		
 		elif message.text == 'Привет':
 			bot.send_message(message.chat.id, 'Приветик, сэмпай)')
+		
 		elif message.text == 'приветик':
 			bot.send_message(message.chat.id, 'Приветик, сэмпай)')
+		
 		elif message.text == 'Приветик':
 			bot.send_message(message.chat.id, 'Приветик, сэмпай)')
+		
 		else:
 			bot.send_message(message.chat.id, 'Я не понимаю вас,сэмпай!')
 			sti = open('menhera_what.webp', 'rb')
 			bot.send_sticker(message.chat.id, sti)
+
+
 # RUN
 bot.polling(none_stop=True)
