@@ -1,8 +1,15 @@
 import telebot 
 import config
 import random
+import requests
 
+from bs4 import BeautifulSoup
 from telebot import types 
+
+url = 'https://anekdotov.net/'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'lxml')
+quotes = soup.find_all('div', class_='anekdot')
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -16,8 +23,9 @@ def welcome(message):
 	item1 = types.KeyboardButton("Как дела?")
 	item2 = types.KeyboardButton("Может сыграем в игру?")
 	item3 = types.KeyboardButton("Раскажи цитату от Симы)")
+	item4 = types.KeyboardButton("Раскажи анекдот")
 
-	markup.add(item1, item2, item3)
+	markup.add(item1, item2, item4)
 
 	bot.send_message(message.chat.id, "Здраствуй господин, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот сделанный чтобы служить господину".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
 
@@ -76,6 +84,10 @@ def lalala(message):
 		
 		elif message.text == 'Приветик':
 			bot.send_message(message.chat.id, 'Приветик, сэмпай)')
+		elif message.text == 'Раскажи анекдот':
+			for allquotes in random.choice(quotes):
+				bot.send_message(message.chat.id, (allquotes.text))
+
 		
 		else:
 			bot.send_message(message.chat.id, 'Я не понимаю вас,сэмпай!')
