@@ -37,6 +37,11 @@ def lalala(message):
 
 			sti2 = open('menhera_watsup.webp.', 'rb')
 			bot.send_sticker(message.chat.id, sti2)
+		elif message.text == 'Нормально':
+			sti5 = open('menhera_boo.webp.', 'rb')
+			bot.send_message(message.chat.id, 'А почему не олтично?Все должно быть олтично,Сэмпай!!!')
+			bot.send_sticker(message.chat.id, sti5)
+
 		elif message.text == 'Может сыграем в игру?':
 			bot.send_message(message.chat.id, 'Загадайте число до 100 и напишите "загадал",я попробую угадать')
 		elif message.text == 'загадал':
@@ -87,8 +92,14 @@ def lalala(message):
 		elif message.text == 'Раскажи анекдот':
 			for allquotes in random.choice(quotes):
 				bot.send_message(message.chat.id, (allquotes.text))
-
-		
+		elif message.text == '♂️Boss of this Gym♂️':
+			sti6 = open('billy_head.webp', 'rb')
+			sti7 = open('billy_body.webp', 'rb')
+			sti8 = open('billy.leg.webp', 'rb')
+			bot.send_message(message.chat.id, '♂️Ass We Can♂')
+			bot.send_sticker(message.chat.id, sti6)
+			bot.send_sticker(message.chat.id, sti7)
+			bot.send_sticker(message.chat.id, sti8)
 		else:
 			bot.send_message(message.chat.id, 'Я не понимаю вас,сэмпай!')
 			sti = open('menhera_what.webp', 'rb')
